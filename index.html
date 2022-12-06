@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta author="KrautGTI">
+      <meta keywords="snowball, christmas, winter, vr, ar, a-frame, three.js">
+      <!--A-Frame source-->
+      <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+      <!--A-Frame extras (including physics)-->
+      <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+      <!--Compatibility with gblocks-->
+      <script src="https://cdn.rawgit.com/archilogic-com/aframe-gblock/6498b71d/dist/gblock.js"></script>
+      <script type="text/javascript" src="scripts/src/Components/Follow.js"></script>
+      <link rel="stylesheet" href="./stylesheets/style.css" type="text/css" />
+    </head>
+    <body>
+        <div id="hpBar">
+          <div id="content"></div>
+        </div>
+        <a-scene>
+          <!--Backgrounds, Skins, and Textures-->
+          <a-assets>
+            <img src="images/snow_texture.jpg" id="snow">
+          </a-assets>
+
+          <!--Build our background and our floor-->
+          <a-plane static-body="sphereRadius:NaN" position="0 0 -4" rotation="-90 0 0" width="100" height="100" src="#snow" color="skyblue" scale="15 15 15"></a-plane>
+          <a-sky color="skyblue"></a-sky>
+          <!--Insert characters and custom elements-->
+          <a-entity gblock="https://poly.google.com/view/bHyQe5jzdiQ" static-body position="-1 0.5 -3" scale="0.8 0.8 0.8" id="house"></a-entity>
+          <a-entity gblock="https://poly.google.com/view/0DiDQUcuv1d" static-body="sphereRadius:NaN" position="-12.564 5.909 12.32" scale="3 3 3" rotation="0 -45 0" id="snowman"></a-entity>
+          <a-entity id="oldMan" gblock="https://poly.google.com/view/5v5j_lqOHTO" static-body="sphereRadius:NaN" scale="0.3 0.3 0.3" position="5.596 0.53 -15.012" rotation="0 75 0"></a-entity>
+          <a-entity class="teacherCar" gblock="https://poly.google.com/view/75h3mi6uHuC" static-body="sphereRadius:NaN" scale="0.08 0.08 0.08" position="22.381 0.086 24.956" rotation="0 230 0"></a-entity>      
+          <!--access the player class and give it all necessary attributes-->
+          <a-entity class="player" id="player"
+            camera
+            jump-ability
+            universal-controls
+            kinematic-body
+            position="1 4 20">
+            <!--Nested cursor allows for click events-->
+            <a-cursor></a-cursor>
+          </a-entity>
+          <a-entity id="ball_frame"></a-entity>
+          <a-entity id="opponent_field"></a-entity>
+        </a-scene>
+    </body>
+    <script type="text/javascript" src="scripts/src/Prototypes/Opponent.js"></script>
+    <script type="text/javascript" src="scripts/Game.js"></script>
+</html>

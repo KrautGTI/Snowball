@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+
+.hidden {
+  display: hidden;
+}
+
+#hpBar {
+  display: flex;
+  flex-flow: column;
+  text-align: right;
+  background-color: skyblue;
+  font-size: larger;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+#content {
+  margin-right: 50px;
+}
